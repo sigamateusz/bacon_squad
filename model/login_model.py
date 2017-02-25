@@ -20,4 +20,4 @@ class LoginModel:
             answer = self.cur.fetchall()
             return answer
         except sqlite3.OperationalError as w:
-            print("Can't check if student exists {}".format(w))
+            print("Can't check if user exists {}".format(w))
