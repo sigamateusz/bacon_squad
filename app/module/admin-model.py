@@ -1,4 +1,4 @@
-from sql import query
+from app.module.sql import query
 
 
 class Admin():

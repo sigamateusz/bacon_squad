@@ -1,4 +1,4 @@
-import sql
+from app.module import sql
 
 class Question:
 

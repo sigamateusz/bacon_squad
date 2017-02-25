@@ -1,4 +1,4 @@
-import sql
+from app.module import sql
 
 class Beacon:
 
@@ -55,7 +55,7 @@ class Beacon:
                           WHERE ID_BEACON = ?"""
         beacon = sql.query(beacon_query,[idx])
         if beacon:
-            beacon = cls(beacon[0][1], beacon[0][2], beacon[0][3], beacon[0][4], beacon[0][5], beacon[0][6])
+            beacon = cls(beacon[0][1], beacon[0][2], beacon[0][3], beacon[0][4], beacon[0][5], beacon[0][6], beacon[0][7])
             return beacon
         return None
 
