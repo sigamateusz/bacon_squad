@@ -10,8 +10,9 @@ class LoginModel:
     def check_user_in_db_by_mail_model(self, mail, password):
         """
         Check if user exists in database.
-        :param mail, password:
-        :return: boolean
+        :param mail:
+        :param password:
+        :return: list
         """
         try:
             self.cur.execute("SELECT id, mail FROM users WHERE mail=(?) AND password=(?)", (mail, password))
