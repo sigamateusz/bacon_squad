@@ -1,23 +1,19 @@
-import sqlite3
+import sql
 
 
 class LoginModel:
-
-    def __init__(self):
-        self.conn = sqlite3.connect('bacon_squad.db')
-        self.cur = self.conn.cursor()
-
-    def check_user_in_db_by_mail_model(self, mail, password):
+    """
+    Validate user in database
+    """
+    @staticmethod
+    def check_user_in_db_by_mail_model(mail, password):
         """
         Check if user exists in database.
         :param mail:
         :param password:
-        :return: list
+        :return: list[ID, MAIL, ACCOUNT_TYPE]
         """
-        try:
-            self.cur.execute("SELECT id, mail FROM users WHERE mail=(?) AND password=(?)", (mail, password))
-            self.conn.commit()
-            answer = self.cur.fetchall()
-            return answer
-        except sqlite3.OperationalError as w:
-            print("Can't check if user exists {}".format(w))
+        sql_obj = sql.query("SELECT ID, MAIL, ACCOUNT_TYPE FROM USERS WHERE MAIL=? AND PASSWORD=?;", [mail, password])
+        mail_password_list = [sql_obj[0][0], sql_obj[0][1], sql_obj[0][2]]
+        return mail_password_list
+
