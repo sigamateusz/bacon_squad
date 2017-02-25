@@ -1,4 +1,4 @@
-import sql
+from app.module.sql import query
 
 
 class LoginModel:
@@ -13,7 +13,7 @@ class LoginModel:
         :param password:
         :return: list[ID, MAIL, ACCOUNT_TYPE]
         """
-        sql_obj = sql.query("SELECT ID, MAIL, ACCOUNT_TYPE FROM USERS WHERE MAIL=? AND PASSWORD=?;", [mail, password])
+        sql_obj = query("SELECT ID, MAIL, ACCOUNT_TYPE FROM USERS WHERE MAIL=? AND PASSWORD=?;", [mail, password])
         mail_password_list = [sql_obj[0][0], sql_obj[0][1], sql_obj[0][2]]
         return mail_password_list
 

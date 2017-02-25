@@ -1,4 +1,4 @@
-from login_model import LoginModel
+from app.module.login_model import LoginModel
 
 class LoginController:
     """
