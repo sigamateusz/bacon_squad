@@ -1,5 +1,5 @@
 class User():
-    def __init__(self, idx, mail, event_idx=None, beacon_idx=None, amount_awr=None, points=None):
+    def __init__(self, idx, mail):
         """
 
         :param idx:
@@ -11,10 +11,10 @@ class User():
         """
         self.idx = idx
         self.mail = mail
-        self.event_idx = event_idx
-        self.beacon_idx = beacon_idx
-        self.amount_awr =amount_awr
-        self.points = points
+        self.event_idx = None
+        self.beacon_idx = None
+        self.amount_awr = None
+        self.points = None
 
     @classmethod
     def create(self, idx, mail):
