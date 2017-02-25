@@ -1,3 +1,6 @@
+from sql import query
+
+
 class User():
     def __init__(self, idx, mail):
         """
@@ -75,3 +78,29 @@ class User():
             self.amount_awr = 1
         else:
             self.amount_awr += 1
+
+    def add_to_event(self, event_idx):
+        """
+
+        :return: True - when add record to database table user_events False - when record exist
+        """
+        self.event_idx = event_idx
+        if not query("""SELECT * FROM USER_EVENTS WHERE USER_ID=? and EVENT_ID=?)""", [self.idx, event_idx]):
+            query("""INSERT INTO USER_EVENTS (USER_ID, EVENT_ID) VALUES (?,?)""", [self.idx, event_idx])
+            return True
+        return False
+
+    @staticmethod
+    def add_user(mail, password, account_type):
+        """
+
+        :param mail:
+        :param password:
+        :param account_type:
+        :return: True - when insert user to data base False - when that user exist in users database
+        """
+        if not query("""SELECT * FROM USERS WHERE MAIL=?""", [mail]):
+            query("""INSERT INTO USERS (MAIL, PASSWORD, ACCOUNT_TYPE) VALUES (?, ?, ?)""",
+                  [mail, password, account_type])
+            return True
+        return False
