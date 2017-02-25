@@ -26,7 +26,8 @@ def main():
     query("""CREATE TABLE `USER_EVENT_STATISTIC` (`ID`	INTEGER,`USER_ID`	INTEGER,`PKT`	INTEGER,`COUNT_ANSWERS`	INTEGER,`EVENT_ID`	INTEGER,PRIMARY KEY(`ID`));""")
 
     # -------NEW RECORDS-------
-    query("""INSERT INTO `USERS` (MAIL,PASSWORD,ACCOUNT_TYPE) VALUES ('a@a','aaa','user');""")
+    query("""INSERT INTO `USERS` (MAIL,PASSWORD,ACCOUNT_TYPE) VALUES ('u@u','uuu','user');""")
+    query("""INSERT INTO `USERS` (MAIL,PASSWORD,ACCOUNT_TYPE) VALUES ('a@a','aaa','admin');""")
 
 if __name__ == '__main__':
     main()
