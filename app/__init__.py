@@ -26,3 +26,12 @@ def question():
     if request.method == 'POST':
         return redirect((url_for('login')))
     return render_template('module/question.html')
+
+@app.route('/mateusz', methods=['POST', 'GET'])
+def mateusz():
+    if request.method == 'POST':
+        data = request.values
+        print(data)
+        print(data['name'])
+        return  data['name']
+    return 'LIPA'
