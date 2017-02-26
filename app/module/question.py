@@ -65,8 +65,15 @@ class Question:
 
 
     @staticmethod
-    def get_beacon():
+    def get_question_mobile():
         question = sql.query("""SELECT * FROM QUESTION WHERE USED=0""")
-        question = question[0][0]
+        question = question[0]
         sql.query("""UPDATE QUESTION SET USED=1 WHERE ID=?""", [question[0]])
         return "||".join([str(i) for i in question])
+
+    @staticmethod
+    def get_question():
+        question = sql.query("""SELECT * FROM QUESTION WHERE USED=0""")
+        question = question[0]
+        sql.query("""UPDATE QUESTION SET USED=1 WHERE ID=?""", [question[0]])
+        return question[1:-1]

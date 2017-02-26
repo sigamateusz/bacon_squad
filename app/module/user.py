@@ -104,3 +104,7 @@ class User():
                   [mail, password, account_type])
             return True
         return False
+
+    @staticmethod
+    def if_exist(mail, password):
+        pass

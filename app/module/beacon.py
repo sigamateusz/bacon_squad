@@ -62,7 +62,7 @@ class Beacon:
     @staticmethod
     def get_beacon():
         beacon = sql.query("""SELECT * FROM BEACON WHERE USED=0""")
-        beacon = beacon[0][0]
+        beacon = beacon[0]
         sql.query("""UPDATE BEACON SET USED=1 WHERE ID=?""", [beacon[0]])
         return "||".join([str(i) for i in beacon])
 
