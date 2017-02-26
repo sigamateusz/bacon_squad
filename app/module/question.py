@@ -58,3 +58,7 @@ class Question:
             question = cls(question[0][0], question[0][1], question[0][2], question[0][3], question[0][4], question[0][5], question[0][6])
             return question
         return None
+
+    @staticmethod
+    def used_question(user_idx, question_idx):
+        sql.query("""INSERT INTO USER_QUESTIONS (USER_ID, QUESTION_ID) VALUES (?, ?)""", [user_idx, question_idx])
