@@ -1,4 +1,6 @@
 from app.module.login_model import LoginModel
+from app.module.user import User
+from app.module.admin_model import Admin
 
 class LoginController:
     """
