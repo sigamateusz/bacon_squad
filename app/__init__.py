@@ -33,11 +33,16 @@ def mateusz():
         else:
             return '0'
 
-@app.route('/odp', methods=['POST', 'GET'])
+@app.route('/mobile_question', methods=['POST', 'GET'])
 def pytanie():
+    if request.method == "GET":
+        table = Question.get_question_mobile()
+        return table
     if request.method == 'POST':
         if request.form['answer'] == correct:
             pass
+
+
 
 # @app.route('/question', methods=['POST', 'GET'])
 # def question():
