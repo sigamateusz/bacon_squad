@@ -23,7 +23,7 @@ def question():
         return redirect((url_for('login')))
     return render_template('module/question.html')
 
-@app.route('/mateusz', methods=['POST', 'GET'])
+@app.route('/login_mobile', methods=['POST', 'GET'])
 def mateusz():
     if request.method == 'POST':
         data = request.values
@@ -34,8 +34,9 @@ def mateusz():
 
 @app.route('/odp', methods=['POST', 'GET'])
 def pytanie():
-    if request.form['answer'] == correct:
-        pass
+    if request.method = 'POST':
+        if request.form['answer'] == correct:
+
 
 # @app.route('/question', methods=['POST', 'GET'])
 # def question():
