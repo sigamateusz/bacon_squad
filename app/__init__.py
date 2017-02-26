@@ -17,11 +17,12 @@ def login():
 
 @app.route('/question', methods=['POST', 'GET'])
 def question():
-    question = list
-
+    table = Question.get_question()
     if request.method == 'POST':
+        if table:
+            return render_template('module/question.html', table=table)
         return redirect((url_for('login')))
-    return render_template('module/question.html')
+    return render_template('module/question.html', table=table)
 
 @app.route('/login_mobile', methods=['POST', 'GET'])
 def mateusz():
