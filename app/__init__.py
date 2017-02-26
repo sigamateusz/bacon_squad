@@ -6,6 +6,6 @@ app =Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def hello():
     if request.method == 'POST':
-        text = request.form['email']
+        email = request.form['email']
         return text
     return render_template('module/index.html')
