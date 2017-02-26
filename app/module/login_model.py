@@ -14,6 +14,7 @@ class LoginModel:
         :return: list[ID, MAIL, ACCOUNT_TYPE]
         """
         sql_obj = query("SELECT ID, MAIL, ACCOUNT_TYPE FROM USERS WHERE MAIL=? AND PASSWORD=?;", [mail, password])
-        mail_password_list = [sql_obj[0][0], sql_obj[0][1], sql_obj[0][2]]
-        return mail_password_list
-
+        if sql_obj:
+            mail_password_list = [sql_obj[0][0], sql_obj[0][1], sql_obj[0][2]]
+            return mail_password_list
+        return None
