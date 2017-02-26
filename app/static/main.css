@@ -22,4 +22,21 @@
     .form-control{
         height: 80px;
     }
+    .top{
+        margin-top: 150px;
+    }
+    input[type=button] {
+        font-size: 20px;
+        text-align: center;
+        height: 250px;
+    }
+}
+
+@media (min-width: 480px) {
+    .top{
+        margin-top: 100px;
+    }
+    .big{
+        height: 150px;
+    }
 }
