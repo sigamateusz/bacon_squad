@@ -1,19 +1,18 @@
 package com.example.root.bacon_squad_mobile;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+
 import java.util.UUID;
 
-import android.content.Intent;
-import android.widget.Button;
 
-
-
-public class MainActivity extends AppCompatActivity {
+public class Questions extends AppCompatActivity {
     private static final UUID ESTIMOTE_PROXIMITY_UUID = UUID.fromString("B9407F30-F5F8-466E-AFF9-25556B57FE6D");
     private static final Region ALL_ESTIMOTE_BEACONS = new Region("rid", ESTIMOTE_PROXIMITY_UUID, null, null);
     private BeaconManager beaconManager = null;
