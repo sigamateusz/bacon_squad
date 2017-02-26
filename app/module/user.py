@@ -106,5 +106,8 @@ class User():
         return False
 
     @staticmethod
-    def if_exist(mail, password):
-        pass
+    def add_point_mobile(user_mail):
+        if query("""SELECT POINTS_AMOUNT FROM USERS WHERE MAIL=?""", [user_mail]):
+            query("""UPDATE USERS SET POINTS_AMOUNT= POINTS_AMOUNT + 1 WHERE MAIL=?""", [user_mail])
+        else:
+            query("""UPDATE USERS SET POINTS_AMOUNT= 1 WHERE MAIL=?""", [user_mail])
