@@ -22,7 +22,7 @@ def question():
         if table:
             return render_template('module/question.html', table=table)
         return redirect((url_for('login')))
-    return render_template('module/question.html', table=table)
+    return render_template('module/question.html')
 
 @app.route('/login_mobile', methods=['POST', 'GET'])
 def mateusz():

@@ -1,7 +1,6 @@
 import sqlite3
 
-
-def connect_db(db='app/module/bacon_squad.db'):
+def connect_db(db='bacon_squad.db'):
     return sqlite3.connect(db)
 
 
