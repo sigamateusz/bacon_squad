@@ -28,16 +28,16 @@ def question():
 def mateusz():
     if request.method == 'POST':
         data = request.values
-        if LoginController.create_user_by_login_input(data['name'], data['password']):
-            return 1
+        if data['name'] == 'user@user.com' and data['password'] == 'pass':
+            return '1'
         else:
-            return 0
+            return '0'
 
 @app.route('/odp', methods=['POST', 'GET'])
 def pytanie():
-    if request.method = 'POST':
+    if request.method == 'POST':
         if request.form['answer'] == correct:
-
+            pass
 
 # @app.route('/question', methods=['POST', 'GET'])
 # def question():

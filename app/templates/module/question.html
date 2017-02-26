@@ -9,30 +9,30 @@
 </head>
 <body>
 <div class="container-fluid top">
-    {{if table}}
+    {{ if table }}
     <form method="post">
-        <h2>{{table[0]}}</h2>
+        <h2>{{ table[0] }}</h2>
         <div class="row">
 
             <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={table[1]}>
+                   value= {{ table[1] }}>
 
             <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={table[2]}>
+                   value= {{ table[2] }}>
 
         </div>
         <div class="row">
 
             <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={table[3]}>
+                   value= {{ table[3] }}>
 
             <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={table[4]}>
+                   value= {{ table[4] }}>
 
         </div>
 
     </form>
-    {{endif}}
+    {{ endif }}
 </div>
 </body>
 </html>
