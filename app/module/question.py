@@ -62,3 +62,11 @@ class Question:
     @staticmethod
     def used_question(user_idx, question_idx):
         sql.query("""INSERT INTO USER_QUESTIONS (USER_ID, QUESTION_ID) VALUES (?, ?)""", [user_idx, question_idx])
+
+
+    @staticmethod
+    def get_beacon():
+        question = sql.query("""SELECT * FROM QUESTION WHERE USED=0""")
+        question = question[0][0]
+        sql.query("""UPDATE QUESTION SET USED=1 WHERE ID=?""", [question[0]])
+        return "||".join([str(i) for i in question])
