@@ -5,6 +5,7 @@ class LoginModel:
     """
     Validate user in database
     """
+
     @staticmethod
     def check_user_in_db_by_mail_model(mail, password):
         """
