@@ -1,0 +1,25 @@
+.login{
+    margin-top: 250px;
+}
+.login_page{
+    background-color: #2a6496;
+}
+
+@media (min-width: 768px) and (max-width: 1000px){
+    .login{
+        margin-top: 150px;
+    }
+    .form-group .control-label{
+        text-align: center;
+        font-size: 30px;
+    }
+    div .bt_post{
+        text-align: center;
+    }
+    .bt_post .btn{
+        font-size: 35px;
+    }
+    .form-control{
+        height: 80px;
+    }
+}
