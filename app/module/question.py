@@ -1,7 +1,7 @@
 from app.module import sql
 
-class Question:
 
+class Question:
     def __init__(self, idx, question_one, question_two, question_three, question_four, correct_question, event_id):
         self.idx = idx
         self.question_one = question_one
@@ -25,7 +25,6 @@ class Question:
         :return: Object of class Beacon
         """
         return cls(idx, question_one, question_two, question_three, question_four, correct_question, event_id)
-
 
     @staticmethod
     def random_question_id(user_idx, event_idx):
@@ -53,9 +52,10 @@ class Question:
         """
         question_query = """SELECT * FROM QUESTION
                           WHERE ID = ?"""
-        question = sql.query(question_query,[idx])
+        question = sql.query(question_query, [idx])
         if question:
-            question = cls(question[0][0], question[0][1], question[0][2], question[0][3], question[0][4], question[0][5], question[0][6])
+            question = cls(question[0][0], question[0][1], question[0][2], question[0][3], question[0][4],
+                           question[0][5], question[0][6])
             return question
         return None
 
