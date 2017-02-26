@@ -13,7 +13,7 @@ def login():
     if request.method == 'POST':
         if request.form['email'] == 'user@user.com' and request.form['password'] == 'pass':
             return redirect(url_for('question'))
-        return redirect(url_for('question'))
+    return render_template('module/index.html')
 
 @app.route('/question', methods=['POST', 'GET'])
 def question():
@@ -32,7 +32,7 @@ def mateusz():
         else:
             return 0
 
-@app.route('/pytanie', methods=['POST', 'GET'])
+@app.route('/odp', methods=['POST', 'GET'])
 def pytanie():
     if request.form['answer'] == correct:
         pass
