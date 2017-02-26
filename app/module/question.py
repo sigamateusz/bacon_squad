@@ -1,7 +1,7 @@
 from app.module import sql
 
-class Question:
 
+class Question:
     def __init__(self, idx, question_one, question_two, question_three, question_four, correct_question, event_id):
         self.idx = idx
         self.question_one = question_one
@@ -25,7 +25,6 @@ class Question:
         :return: Object of class Beacon
         """
         return cls(idx, question_one, question_two, question_three, question_four, correct_question, event_id)
-
 
     @staticmethod
     def random_question_id(user_idx, event_idx):
@@ -53,8 +52,21 @@ class Question:
         """
         question_query = """SELECT * FROM QUESTION
                           WHERE ID = ?"""
-        question = sql.query(question_query,[idx])
+        question = sql.query(question_query, [idx])
         if question:
-            question = cls(question[0][0], question[0][1], question[0][2], question[0][3], question[0][4], question[0][5], question[0][6])
+            question = cls(question[0][0], question[0][1], question[0][2], question[0][3], question[0][4],
+                           question[0][5], question[0][6])
             return question
         return None
+
+    @staticmethod
+    def used_question(user_idx, question_idx):
+        sql.query("""INSERT INTO USER_QUESTIONS (USER_ID, QUESTION_ID) VALUES (?, ?)""", [user_idx, question_idx])
+
+
+    @staticmethod
+    def get_beacon():
+        question = sql.query("""SELECT * FROM QUESTION WHERE USED=0""")
+        question = question[0][0]
+        sql.query("""UPDATE QUESTION SET USED=1 WHERE ID=?""", [question[0]])
+        return "||".join([str(i) for i in question])
