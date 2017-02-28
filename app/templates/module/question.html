@@ -3,36 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='reset.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+
 </head>
 <body>
-<div class="container-fluid top">
-    {{ if table }}
+{{if table}}
     <form method="post">
-        <h2>{{ table[0] }}</h2>
-        <div class="row">
-
-            <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={{ table[1] }}>
-
-            <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={{ table[2] }}>
-
+        <div>
+            <label for="a">ODP A</label>
+            <input type="radio" id="a" name="question" value= {{table[0}}>
         </div>
-        <div class="row">
-
-            <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={{ table[3] }}>
-
-            <input class="btn btn-success col-md-6 col-xs-12 col-sm-6 col-md-8 big" type="button" name="answer"
-                   value={{ table[4] }}>
-
+        <div>
+            <label for="b">ODP B</label>
+            <input id="b" name="question" type="radio" value={{table[1}}>
         </div>
-
+        <div>
+            <label for="c">ODP C</label>
+            <input id="c" name="question" type="radio" value={{table[2}}>
+        </div>
+        <div>
+            <label for="d">ODP D</label>
+            <input id="d" name="question" type="radio" value="{{table[3}}">
+        </div>
+        <input type="submit" value="Submit">
     </form>
-    {{ endif }}
-</div>
 </body>
 </html>

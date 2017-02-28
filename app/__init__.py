@@ -13,15 +13,36 @@ def login():
     if request.method == 'POST':
         if request.form['email'] == 'user@user.com' and request.form['password'] == 'pass':
             return redirect(url_for('question'))
-        return redirect(url_for('question'))
+    return render_template('module/index.html')
 
 @app.route('/question', methods=['POST', 'GET'])
 def question():
-    question = list
+    table = Question.get_question()
+    if request.method == 'POST':
+        if table:
+            return render_template('module/question.html', table=table)
+        return redirect((url_for('login')))
+    return render_template('module/question.html')
 
+@app.route('/login_mobile', methods=['POST', 'GET'])
+def mateusz():
+    if request.method == 'POST':
+        data = request.values
+        if data['name'] == 'user@user.com' and data['password'] == 'pass':
+            return '1'
+        else:
+            return '0'
+
+@app.route('/mobile_question', methods=['POST', 'GET'])
+def pytanie():
+    if request.method == "GET":
+        table = Question.get_question_mobile()
+        return table
     if request.method == 'POST':
         if request.form['answer'] == correct:
             pass
+
+
 
 # @app.route('/question', methods=['POST', 'GET'])
 # def question():
