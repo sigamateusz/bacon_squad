@@ -41,6 +41,8 @@ public class Activity2 extends AppCompatActivity {
     private static final UUID ESTIMOTE_PROXIMITY_UUID = UUID.fromString("B9407F30-F5F8-466E-AFF9-25556B57FE6D");
     private static final Region ALL_ESTIMOTE_BEACONS = new Region("rid", ESTIMOTE_PROXIMITY_UUID, null, null);
     private BeaconManager beaconManager = null;
+    static String beacon_id = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,10 +126,10 @@ public class Activity2 extends AppCompatActivity {
 //                    Log.i("Beacon", String.valueOf(beacon.getMajor()));
 //                }
 
-
+//                "57784"
 
                 for (Beacon beacon: beacons){
-                    if(String.valueOf(beacon.getMajor()).equals("57784")){
+                    if(String.valueOf(beacon.getMajor()).equals( beacon_id)){
 
                         if (beacon.getRssi() > -90){
                             ImageView image = (ImageView) findViewById(R.id.imageView);
@@ -237,7 +239,7 @@ public class Activity2 extends AppCompatActivity {
 
     }
 
-    String[] splitString(String text){
+    static String[] splitString(String text){
 //        "1||1||Abdul-Jabbar||Karim||1996||1974"
 
         final String PLAYER = text;
